@@ -2,12 +2,16 @@ package com.example.advweek4.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.volley.RequestQueue
 import com.example.advweek4.model.Student
 
 class ListViewModel: ViewModel() {
     val studentsLD = MutableLiveData<ArrayList<Student>>()
     val studentLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
+
+    val TAG = "volleyTag"
+    private var queue: RequestQueue? = null
     fun refresh() {
         studentsLD.value = arrayListOf(
             Student("16055","Nonie","1998/03/28","5718444778","http://dummyimage.com/75x100" +
@@ -16,7 +20,7 @@ class ListViewModel: ViewModel() {
                     ".jpg/5fa2dd/ffffff"),
             Student("11204","Dinny","1994/10/07","6827808747","http://dummyimage.com/75x100.jpg/5fa2dd/ffffff1")
         )
+        loadingLD.value = true
         studentLoadErrorLD.value = false
-        loadingLD.value = false
     }
 }
