@@ -24,6 +24,15 @@ class StudentListFragment : Fragment() {
     ): View? {
         binding = FragmentStudentListBinding.inflate(inflater,container, false)
         return binding.root
+
+        binding.refreshLayout.setOnRefreshListener {
+            binding.recView.visibility = View.GONE
+            binding.txtError.visibility = View.GONE
+            binding.progressLoad.visibility = View.VISIBLE
+            viewModel.refresh()
+            binding.refreshLayout.isRefreshing = false
+        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +43,7 @@ class StudentListFragment : Fragment() {
         binding.recView.layoutManager = LinearLayoutManager(context)
         binding.recView.adapter = studentListAdapter
         observeViewModel()
+
 
     }
     fun observeViewModel() {
@@ -56,7 +66,6 @@ class StudentListFragment : Fragment() {
                 binding.progressLoad.visibility = View.GONE
             }
         })
-
     }
 
 

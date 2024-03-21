@@ -40,7 +40,7 @@ class StudentDetailFragment : Fragment() {
             // Update UI with student details
             binding.txtID.setText(student.id ?: "")
             binding.txtName.setText(student.name ?: "")
-            binding.txtBod.setText(student.dob ?: "")
+            binding.txtBod.setText(student.bod ?: "")
             binding.txtPhone.setText(student.phone ?: "")
             // You can ignore the button update as per the hint
         })
