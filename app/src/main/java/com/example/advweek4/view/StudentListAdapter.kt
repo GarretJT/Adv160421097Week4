@@ -10,9 +10,9 @@ import com.example.advweek4.databinding.FragmentStudentListItemBinding
 import com.example.advweek4.model.Student
 import com.example.advweek4.util.loadImage
 
-class StudentListViewAdapter(
+class StudentListAdapter(
     val studentList:ArrayList<Student>
-) : RecyclerView.Adapter<StudentListViewAdapter.StudentViewHolder>() {
+) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
 
     class StudentViewHolder(var binding: FragmentStudentListItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -20,11 +20,11 @@ class StudentListViewAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StudentListViewAdapter.StudentViewHolder {
+    ): StudentListAdapter.StudentViewHolder {
         val binding = FragmentStudentListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return StudentListViewAdapter.StudentViewHolder(binding)
+        return StudentListAdapter.StudentViewHolder(binding)
     }
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         holder.binding.txtID.text = studentList[position].id

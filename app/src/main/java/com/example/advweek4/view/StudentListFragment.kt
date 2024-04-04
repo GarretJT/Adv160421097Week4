@@ -15,7 +15,7 @@ import com.example.advweek4.viewmodel.ListViewModel
 class StudentListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
-    private val studentListAdapter  = StudentListViewAdapter(arrayListOf())
+    private val studentListAdapter  = StudentListAdapter(arrayListOf())
     private lateinit var binding: FragmentStudentListBinding
 
     override fun onCreateView(
