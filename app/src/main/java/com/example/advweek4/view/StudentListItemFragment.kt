@@ -17,5 +17,4 @@ class studentListItemFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_student_list_item, container, false)
     }
 
-
 }
